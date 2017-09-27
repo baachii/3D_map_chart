@@ -1,5 +1,5 @@
 /*/////////////////////////////
- [polygon_map_graph]
+ [3D_map_chart]
  @author : daijiy
  coding  : UTF-8
  ・Processingのコード
