@@ -12,7 +12,8 @@ PImage img2;
 PImage img3;
 PImage img4;
 int stat = 0; //画面状態を表す状態変数
-Serial myPort; シリアル通信用にシリアルのクラスを作る
+import processing.serial.*;
+Serial myPort;// シリアル通信用にシリアルのクラスを作る
 
 void setup()
 {
@@ -22,7 +23,7 @@ void setup()
   img2 = loadImage("mikan-off.jpg");
   img3 = loadImage("return.jpg");
   img4 = loadImage("title.png");
-  String portName = Serial.list()[4];//シリアルリストからポート名を取得。4番目を取っているがPCによって調整。
+  String portName = Serial.list()[1];//シリアルリストからポート名を取得。4番目を取っているがPCによって調整。
   printArray(Serial.list());//シリアルリストをコンソールに表示
   myPort = new Serial(this, portName, 9600);//シリアルポートを開く
 }
@@ -81,7 +82,7 @@ void mousePressed()
     {
       stat = 2;
       println("1");//コンソール出力を指定
-       myPort.write('1');シリアル通信で1を送信
+       myPort.write('1');//シリアル通信で1を送信
       img1 = loadImage("mikan-data.jpg");
       img2 = loadImage("mikan-off.jpg");
     }
